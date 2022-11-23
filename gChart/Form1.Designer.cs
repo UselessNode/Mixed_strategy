@@ -42,24 +42,21 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bExecute = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.GraphicsTabPage = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.InfoTabPage = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillRandomMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.solveRandomMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.clearTableMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.executeMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveGraphicMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.fillRandomMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.DrawGraphMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.MainTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,9 +64,6 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.GraphicsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.InfoTabPage.SuspendLayout();
@@ -92,10 +86,10 @@
             // MainTabPage
             // 
             this.MainTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainTabPage.Controls.Add(this.label1);
             this.MainTabPage.Controls.Add(this.tableLayoutPanel1);
             this.MainTabPage.Controls.Add(this.dataGridView1);
             this.MainTabPage.Controls.Add(this.bExecute);
-            this.MainTabPage.Controls.Add(this.groupBox1);
             this.MainTabPage.Location = new System.Drawing.Point(4, 30);
             this.MainTabPage.Name = "MainTabPage";
             this.MainTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -111,12 +105,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.rtbOutput, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 169);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 48);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(291, 345);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 477);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // flowLayoutPanel3
@@ -127,7 +121,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(285, 64);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(324, 64);
             this.flowLayoutPanel3.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -199,7 +193,7 @@
             this.rtbOutput.Location = new System.Drawing.Point(3, 73);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(285, 269);
+            this.rtbOutput.Size = new System.Drawing.Size(324, 401);
             this.rtbOutput.TabIndex = 4;
             this.rtbOutput.Text = "";
             // 
@@ -211,103 +205,22 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(324, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(348, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(360, 523);
+            this.dataGridView1.Size = new System.Drawing.Size(321, 222);
             this.dataGridView1.TabIndex = 3;
             // 
             // bExecute
             // 
             this.bExecute.AutoSize = true;
-            this.bExecute.Location = new System.Drawing.Point(7, 129);
+            this.bExecute.Location = new System.Drawing.Point(361, 276);
             this.bExecute.Name = "bExecute";
             this.bExecute.Size = new System.Drawing.Size(299, 28);
             this.bExecute.TabIndex = 2;
             this.bExecute.Text = "Решить";
             this.bExecute.UseVisualStyleBackColor = true;
             this.bExecute.Click += new System.EventHandler(this.bExecute_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 117);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Количество решений";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 18);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "B:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 18);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "A:";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown2.Location = new System.Drawing.Point(38, 59);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(76, 27);
-            this.numericUpDown2.TabIndex = 3;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown1.Location = new System.Drawing.Point(38, 26);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(76, 27);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // GraphicsTabPage
             // 
@@ -343,6 +256,17 @@
             this.InfoTabPage.Text = "Справка";
             this.InfoTabPage.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(687, 529);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
@@ -368,6 +292,13 @@
             this.menuStrip.Size = new System.Drawing.Size(65, 19);
             this.menuStrip.Text = "Таблица";
             // 
+            // fillRandomMenuButton
+            // 
+            this.fillRandomMenuButton.Name = "fillRandomMenuButton";
+            this.fillRandomMenuButton.Size = new System.Drawing.Size(325, 22);
+            this.fillRandomMenuButton.Text = "Заполнить таблицу случайными значениями";
+            this.fillRandomMenuButton.Click += new System.EventHandler(this.fillRandomMenuButton_Click);
+            // 
             // solveRandomMenuButton
             // 
             this.solveRandomMenuButton.Name = "solveRandomMenuButton";
@@ -392,7 +323,8 @@
             // графикиToolStripMenuItem
             // 
             this.графикиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SaveGraphicMenuButton});
+            this.SaveGraphicMenuButton,
+            this.DrawGraphMenuButton});
             this.графикиToolStripMenuItem.Name = "графикиToolStripMenuItem";
             this.графикиToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
             this.графикиToolStripMenuItem.Text = "График";
@@ -404,17 +336,6 @@
             this.SaveGraphicMenuButton.Text = "Сохранить";
             this.SaveGraphicMenuButton.Click += new System.EventHandler(this.SaveGraphicMenuButton_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(687, 529);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.FileName = "Диаграмма";
@@ -422,12 +343,21 @@
             this.saveFileDialog1.Title = "Сохранение изображения диаграммы";
             this.saveFileDialog1.ValidateNames = false;
             // 
-            // fillRandomMenuButton
+            // DrawGraphMenuButton
             // 
-            this.fillRandomMenuButton.Name = "fillRandomMenuButton";
-            this.fillRandomMenuButton.Size = new System.Drawing.Size(325, 22);
-            this.fillRandomMenuButton.Text = "Заполнить таблицу случайными значениями";
-            this.fillRandomMenuButton.Click += new System.EventHandler(this.fillRandomMenuButton_Click);
+            this.DrawGraphMenuButton.Name = "DrawGraphMenuButton";
+            this.DrawGraphMenuButton.Size = new System.Drawing.Size(180, 22);
+            this.DrawGraphMenuButton.Text = "Нарисовать";
+            this.DrawGraphMenuButton.Click += new System.EventHandler(this.DrawGraphMenuButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(446, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 18);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Матрица 2 х 2";
             // 
             // Form1
             // 
@@ -442,7 +372,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MinimumSize = new System.Drawing.Size(299, 200);
             this.Name = "Form1";
-            this.Text = "gChart";
+            this.Text = "Решение игры в смешанных стратегиях геометрическим методом";
             this.TopMost = true;
             this.tabControl1.ResumeLayout(false);
             this.MainTabPage.ResumeLayout(false);
@@ -456,10 +386,6 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.GraphicsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.InfoTabPage.ResumeLayout(false);
@@ -474,8 +400,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage MainTabPage;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TabPage GraphicsTabPage;
         private System.Windows.Forms.Label Label4;
         private System.Windows.Forms.TextBox tBMinMax;
@@ -484,10 +408,7 @@
         private System.Windows.Forms.Button bExecute;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage InfoTabPage;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.RichTextBox rtbOutput;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuStrip;
         private System.Windows.Forms.ToolStripMenuItem solveRandomMenuButton;
@@ -503,6 +424,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem fillRandomMenuButton;
+        private System.Windows.Forms.ToolStripMenuItem DrawGraphMenuButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 

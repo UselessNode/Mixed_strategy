@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -15,29 +16,31 @@ namespace gChart
 {
     public partial class Form1 : Form
     {
-        Double[,] data;
-        List<List<Double>> listRows;
-        List<List<Double>> listCols;
-        Bitmap bitmap;
+        private Double[,] data;
+        private List<List<Double>> listRows;
+        private List<List<Double>> listCols;
+        private Bitmap bitmap;
+        private double p1;
+        private double p2;
+        private double q1;
+        private double q2;
+        private double y;
         public Form1()
         {
             InitializeComponent();
             LoadTable();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            LoadTable();
-        }
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e) => LoadTable();
 
-        void LoadTable()
+        private void LoadTable()
         {
-            dataGridView1.ColumnCount = (int)numericUpDown1.Value;
-            dataGridView1.RowCount =    (int)numericUpDown2.Value;
+            dataGridView1.ColumnCount = 2;
+            dataGridView1.RowCount = 2;
         }
 
 
-        void GetResultCalc()
+        private void GetResultCalc()
         {
             rtbOutput.Clear();
             data = GetArrayFromDataGridView(true);
@@ -49,55 +52,19 @@ namespace gChart
             List<Double> maxList = new List<Double>();
             List<Double> minList = new List<Double>();
 
-            Double maxmin = Maximin(data, rowSize, colSize, listRows, maxList);
-            Double minmax = Minimax(data, rowSize, colSize, listCols, minList);
 
-            tBMinMax.Text = (minmax).ToString();
-            tBMaxMin.Text = (maxmin).ToString();
-            DrawGraph();
-            if (minmax == maxmin)
-            {
-                rtbOutput.Text += $"Цена игры (V): {minmax} \n";
-                return;
-            }
-            rtbOutput.Text += $"Задача является смешанной \n";
-            double a = Math.Abs(data[1,0] - data[0,0]);
-            double d = Math.Abs(data[1,1] - data[0,1]);
-            double b = 1;
-            double e = 1;
-            double c = data[0,0];
-            double f = data[0,1];
-
-            double x = 0;
-            double y = 0;
-            SolveSLE(a,b,c,d,e,f,out x, out y);
-            rtbOutput.Text += $"{a}*x+{b}*y={c}\n{d}*x+{e}*y={f}\nx = {x}\ty = {y}\nЦена игры (V) = {y}\n";
-            rtbOutput.Text += $"\nОптимальные решения:\nX:({x};{1 - x})\nY:({y};{1 - y})";
-        }
-
-        private Double Maximin(Double[,] data, int rowSize, int colSize, List<List<Double>> rows, List<Double> minList)
-        {
-            // Запись значений строк в массив строк
+            // Запись значений строк в список строк
             for (int row = 0; row < rowSize + 1; row++)
             {
-                List<Double> temp = new List<Double>();
+                List<Double> temp = new List<Double>(rowSize);
                 for (int col = 0; col < colSize + 1; col++)
                 {
                     temp.Add(data[row, col]);
                 }
-                rows.Add(temp);
+                listRows.Add(temp);
             }
 
-            foreach (List<Double> list in rows)
-            {
-                minList.Add(list.Min());
-            }
-            return minList.Max();
-        }
-
-        private Double Minimax(Double[,] data, int rowSize, int colSize, List<List<Double>> cols, List<Double> maxList)
-        {
-            // Запись значений столбцов в массив столбцов
+            // Запись значений столбцов в список столбцов
             for (int col = 0; col < colSize + 1; col++)
             {
                 List<Double> temp = new List<Double>();
@@ -105,48 +72,56 @@ namespace gChart
                 {
                     temp.Add(data[row, col]);
                 }
-                cols.Add(temp);
+                listCols.Add(temp);
             }
 
-            foreach (List<Double> list in cols)
-            {
+            foreach (List<Double> list in listRows)
+                minList.Add(list.Min());
+            
+
+            foreach (List<Double> list in listCols)
                 maxList.Add(list.Max());
-            }
-            return maxList.Min();
-        }
 
+            Double maxmin = minList.Max();
+            Double minmax = maxList.Min();
+
+            tBMinMax.Text = (minmax).ToString();
+            tBMaxMin.Text = (maxmin).ToString();
+            if (minmax == maxmin)
+            {
+                rtbOutput.Text += $"Цена игры (V): {minmax} \n";
+                return;
+            }
+            rtbOutput.Text += $"Задача является смешанной \n";
+
+            p1 = (data[1, 1] - data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+            p2 = (data[0, 0] - data[0, 1]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+            q1 = (data[1, 1] - data[0, 1]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+            q2 = (data[0, 0] - data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+            y = (data[0,0] * data[1,1] - data[0, 1] * data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+
+            rtbOutput.Text += $"\nЦена игры (V) = {y.ToString("0.00")}";
+            rtbOutput.Text += $"\nq1 = {q1.ToString("0.00")}";
+            rtbOutput.Text += $"\nq2 = {q2.ToString("0.00")}";
+            rtbOutput.Text += $"\np1 = {p1.ToString("0.00")}";
+            rtbOutput.Text += $"\np2 = {p2.ToString("0.00")}";
+        }
+        
         private Double[,] GetArrayFromDataGridView(Boolean isDouble)
         {
             int rCount = dataGridView1.RowCount;
             int cCount = dataGridView1.ColumnCount;
             Double[,] data = new double[rCount, cCount];
             for (int r = 0; r < rCount; r++)
-            {
                 for (int c = 0; c < cCount; c++)
                 {
-                    //dataGridView1.Rows[r].Cells[c].Value;
                     var x = dataGridView1.Rows[r].Cells[c].Value;
                     data[r, c] = Convert.ToDouble(x);
                 }
-            }
             return data;
         }
 
-        private void bExecute_Click(object sender, EventArgs e)
-        {
-            GetResultCalc();
-        }
-
-        void SolveSLE(double a, double b, double c, double d, double e, double f, out double x, out double y)
-        {
-            x = GetDeterminant(c, b, f, e) / GetDeterminant(a, b, d, e);
-            y = GetDeterminant(a, c, d, f) / GetDeterminant(a, b, d, e);
-        }
-
-        static double GetDeterminant(double x1, double y1, double x2, double y2)
-        {
-            return x1 * y2 - y1 * x2;
-        }
+        private void bExecute_Click(object sender, EventArgs e) => GetResultCalc();
 
         private void fillTableRandomMenuButton_Click(object sender, EventArgs e)
         {
@@ -186,34 +161,52 @@ namespace gChart
             bitmap = new Bitmap(300, 300);
             Graphics g = Graphics.FromImage(bitmap);
             g.Clear(Color.White);
+            g.RenderingOrigin = new Point(300, 300);
             Pen boldPen = new Pen(new SolidBrush(Color.Black), 4);
             boldPen.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
             Pen lightPen = new Pen(new SolidBrush(Color.Crimson), 2);
             lightPen.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
-            List<Point> points0 = new List<Point>();
-            List<Point> points1 = new List<Point>();
+            g.DrawLine(boldPen, 0, 0, 0, 300);
+            g.DrawLine(boldPen, 300, 300, 300,0);
 
-            for (int i = 0; i <= 300; i += 30)
+            for (int i = 0; i <= 300; i+=30)
             {
-                points0.Add(new Point(0, i));
-                points1.Add(new Point(300, i));
+                g.DrawLine(boldPen,
+                    0, i,
+                    15, i);
+                g.DrawLine(boldPen,
+                    300, i,
+                    285, i);
             }
-            points0.Reverse(); points1.Reverse();
-
-            g.DrawLine(boldPen, points0[10], points0[0]);
-            g.DrawLine(boldPen, points0[0], points1[0]);
-            g.DrawLine(boldPen, points1[0], points1[10]);
 
             foreach (var list in listCols)
-                g.DrawLine(lightPen, points0[(int)list[0]], points1[(int)list[1]]);
-
-            for (int i = 0; i <= 300; i += 30)
+                g.DrawLine(lightPen, 
+                    0, 300 - (float)list[0] * 30, 
+                    300, 300 - (float)list[1]* 30);
+            if(p2 != 0)
             {
-                g.DrawLine(boldPen, 0, i, 5, i);
-                g.DrawLine(boldPen, 300, i, 295, i);
+                g.DrawString($"V = {y.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
+                    ((float)p2 * 300) + 30,
+                    300 - ((float)y * 30f));
+                g.DrawLine(new Pen(Color.Blue), 
+                    (float)p2 * 300, 300, 
+                    (float)p2 * 300, 300 - (float)y * 30f);
+                g.DrawString($"p2 = {p2.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
+                    40,
+                    285);
+                g.DrawLine(new Pen(Color.CadetBlue), 
+                    0, 285, 
+                    (float)p2 * 300, 285);
+                g.DrawString($"p1 = {p1.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
+                    240,
+                    285);
+                g.DrawLine(new Pen(Color.CadetBlue), 
+                    300, 285, 
+                    (float)p2 * 300, 285);
             }
+                
             pictureBox1.Image = bitmap;
         }
 
@@ -226,10 +219,9 @@ namespace gChart
             MessageBox.Show("Диаграмма сохранена!","Сохранение",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
-        private void fillRandomMenuButton_Click(object sender, EventArgs e)
-        {
-            FillRandom();
-        }
+        private void fillRandomMenuButton_Click(object sender, EventArgs e) => FillRandom();
+
+        private void DrawGraphMenuButton_Click(object sender, EventArgs e) => DrawGraph();
     }
 }
 
