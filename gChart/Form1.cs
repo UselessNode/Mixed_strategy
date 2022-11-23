@@ -32,7 +32,7 @@ namespace gChart
             dataGridView1.RowCount =    (int)numericUpDown2.Value;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bRandom_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
             int rCount = dataGridView1.RowCount;
@@ -56,6 +56,7 @@ namespace gChart
 
         void GetResultCalc()
         {
+
             int[,] data = GetArrayFromDataGridView();
             int rowSize = data.GetUpperBound(0);
             int colSize = data.GetUpperBound(1);
@@ -80,13 +81,20 @@ namespace gChart
             //int minRow2 = row2.Min();
             //int minmax = Math.Max(minRow1, minRow2);
             //
+            int maxmin = Maximin(data, rowSize, colSize, cols, maxList);
+            int minmax = Minimax(data, rowSize, colSize, rows, minList);
 
-            Minimax(data, rowSize, colSize, rows, minList);
+            tBMaxMin.Text = (maxmin).ToString();
+            tBMinMax.Text = (minmax).ToString();
 
-            Maximin(data, rowSize, colSize, cols, maxList);
+            if(maxmin == minmax)
+            {
+                rtbOutput.Text = $"Цена игры (V): {minmax} \n";
+            }
+
         }
 
-        private void Minimax(int[,] data, int rowSize, int colSize, List<List<int>> rows, List<int> minList)
+        private int Minimax(int[,] data, int rowSize, int colSize, List<List<int>> rows, List<int> minList)
         {
             // Запись значений строк в массив строк
             for (int row = 0; row < rowSize + 1; row++)
@@ -103,11 +111,10 @@ namespace gChart
             {
                 minList.Add(list.Min());
             }
-            int minmax = minList.Max();
-            tBMinMax.Text = minmax.ToString();
+            return minList.Max();
         }
 
-        private void Maximin(int[,] data, int rowSize, int colSize, List<List<int>> cols, List<int> maxList)
+        private int Maximin(int[,] data, int rowSize, int colSize, List<List<int>> cols, List<int> maxList)
         {
             // Запись значений столбцов в массив столбцов
             for (int col = 0; col < colSize; col++)
@@ -124,8 +131,7 @@ namespace gChart
             {
                 maxList.Add(list.Max());
             }
-            int maxmin = maxList.Min();
-            tBMaxMin.Text = maxmin.ToString();
+            return maxList.Min();
         }
 
         private int[,] GetArrayFromDataGridView()
@@ -145,59 +151,11 @@ namespace gChart
             return data;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bExecute_Click(object sender, EventArgs e)
         {
             GetResultCalc();
         }
 
-
-        // Тестовые кнопки (потом удалить)
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // Строки
-
-            int rCount = dataGridView1.RowCount;    // Строка
-            int cCount = dataGridView1.ColumnCount; // Столбец
-
-
-            for (int i = 0; i < rCount; i++)        // Строка
-            {
-                for (int j = 0; j < cCount; j++)
-                {
-                    dataGridView1.Rows[0].Cells[j].Style.BackColor = Color.Turquoise;
-                }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // Столбцы
-
-            int rCount = dataGridView1.RowCount;    // Строка
-            int cCount = dataGridView1.ColumnCount; // Столбец
-
-            for (int i = 0; i < cCount; i++)        // Столбец
-            {
-                
-                for (int j = 0; j < rCount; j++)    //
-                {
-                    dataGridView1.Rows[i].Cells[0].Style.BackColor = Color.Tomato;
-                }
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            int rowNumber = 1;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.IsNewRow) continue;
-                row.HeaderCell.Value = "Row " + rowNumber;
-                rowNumber = rowNumber + 1;
-            }
-            dataGridView1.AutoResizeRowHeadersWidth(
-                DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-        }
     }
 }
 
