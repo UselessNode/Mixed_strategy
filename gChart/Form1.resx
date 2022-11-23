@@ -117,6 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Нижняя цена игры α — это максимальный выигрыш, который мы можем гарантировать себе, в игре против разумного противника, если на протяжении всей игры будем использовать одну и только одну стратегию (такая стратегия называется "чистой").
+
+Верхняя цена игры β — это минимальный проигрыш, который может гарантировать себе игрок "В", в игре против разумного противника, если на протяжении всей игры он будет использовать одну и только одну стратегию.
+
+Смешанная стратегия, это чередуемые случайным образом чистые стратегии, с определенными вероятностями (частотами).
+
+p1, p2 -  Вероятности (частоты) игрока 1, с которыми эти стратегии применяются, причем p1 + p2 = 1.
+
+q1, q2 - соответственно вероятности игрока 2. Так же q1 + q2 = 1.
+
+Оптимальная смешанная стратегия для игрока "А" та, которая обеспечивает максимальный выигрыш.
+Соответственно для "B" - минимальный проигрыш.</value>
+  </data>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

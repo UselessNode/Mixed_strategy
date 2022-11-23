@@ -30,73 +30,176 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MainTabPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.tBMaxMin = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tBMinMax = new System.Windows.Forms.TextBox();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bExecute = new System.Windows.Forms.Button();
-            this.bRandom = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.tBMaxMin = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tBMinMax = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.GraphicsTabPage = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.InfoTabPage = new System.Windows.Forms.TabPage();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.solveRandomMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearTableMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.executeMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.графикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveGraphicMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.fillRandomMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.MainTabPage.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.GraphicsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.InfoTabPage.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.MainTabPage);
+            this.tabControl1.Controls.Add(this.GraphicsTabPage);
+            this.tabControl1.Controls.Add(this.InfoTabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 23);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(712, 588);
+            this.tabControl1.Size = new System.Drawing.Size(697, 565);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // MainTabPage
             // 
-            this.tabPage1.Controls.Add(this.rtbOutput);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.bExecute);
-            this.tabPage1.Controls.Add(this.bRandom);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(704, 557);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Таблица";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.MainTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainTabPage.Controls.Add(this.tableLayoutPanel1);
+            this.MainTabPage.Controls.Add(this.dataGridView1);
+            this.MainTabPage.Controls.Add(this.bExecute);
+            this.MainTabPage.Controls.Add(this.groupBox1);
+            this.MainTabPage.Location = new System.Drawing.Point(4, 30);
+            this.MainTabPage.Name = "MainTabPage";
+            this.MainTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MainTabPage.Size = new System.Drawing.Size(689, 531);
+            this.MainTabPage.TabIndex = 0;
+            this.MainTabPage.Text = "Главная";
+            this.MainTabPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rtbOutput, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 169);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(291, 345);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(285, 64);
+            this.flowLayoutPanel3.TabIndex = 8;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.Label4);
+            this.flowLayoutPanel1.Controls.Add(this.tBMaxMin);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(267, 26);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // Label4
+            // 
+            this.Label4.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Label4.AutoSize = true;
+            this.Label4.Location = new System.Drawing.Point(3, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(105, 18);
+            this.Label4.TabIndex = 0;
+            this.Label4.Text = "MaxMin (α):";
+            this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBMaxMin
+            // 
+            this.tBMaxMin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBMaxMin.Location = new System.Drawing.Point(114, 3);
+            this.tBMaxMin.Name = "tBMaxMin";
+            this.tBMaxMin.ReadOnly = true;
+            this.tBMaxMin.Size = new System.Drawing.Size(150, 20);
+            this.tBMaxMin.TabIndex = 1;
+            this.tBMaxMin.TabStop = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.tBMinMax);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 35);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(267, 26);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "MinMax (β):";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tBMinMax
+            // 
+            this.tBMinMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBMinMax.Location = new System.Drawing.Point(114, 3);
+            this.tBMinMax.Name = "tBMinMax";
+            this.tBMinMax.ReadOnly = true;
+            this.tBMinMax.Size = new System.Drawing.Size(150, 20);
+            this.tBMinMax.TabIndex = 1;
+            this.tBMinMax.TabStop = false;
             // 
             // rtbOutput
             // 
-            this.rtbOutput.Location = new System.Drawing.Point(4, 378);
+            this.rtbOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbOutput.Location = new System.Drawing.Point(3, 73);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(258, 171);
+            this.rtbOutput.Size = new System.Drawing.Size(285, 269);
             this.rtbOutput.TabIndex = 4;
             this.rtbOutput.Text = "";
             // 
@@ -109,104 +212,22 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(302, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(324, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(399, 551);
+            this.dataGridView1.Size = new System.Drawing.Size(360, 523);
             this.dataGridView1.TabIndex = 3;
             // 
             // bExecute
             // 
             this.bExecute.AutoSize = true;
-            this.bExecute.Location = new System.Drawing.Point(3, 214);
+            this.bExecute.Location = new System.Drawing.Point(7, 129);
             this.bExecute.Name = "bExecute";
-            this.bExecute.Size = new System.Drawing.Size(262, 28);
+            this.bExecute.Size = new System.Drawing.Size(299, 28);
             this.bExecute.TabIndex = 2;
             this.bExecute.Text = "Решить";
             this.bExecute.UseVisualStyleBackColor = true;
             this.bExecute.Click += new System.EventHandler(this.bExecute_Click);
-            // 
-            // bRandom
-            // 
-            this.bRandom.Location = new System.Drawing.Point(3, 158);
-            this.bRandom.Name = "bRandom";
-            this.bRandom.Size = new System.Drawing.Size(262, 50);
-            this.bRandom.TabIndex = 0;
-            this.bRandom.Text = "Заполнить случайными числами";
-            this.bRandom.UseVisualStyleBackColor = true;
-            this.bRandom.Click += new System.EventHandler(this.bRandom_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.flowLayoutPanel3);
-            this.groupBox2.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox2.Location = new System.Drawing.Point(-2, 248);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 121);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Вывод";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.Controls.Add(this.Label4);
-            this.flowLayoutPanel3.Controls.Add(this.tBMaxMin);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(6, 26);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(261, 33);
-            this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // Label4
-            // 
-            this.Label4.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(3, 0);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(98, 18);
-            this.Label4.TabIndex = 0;
-            this.Label4.Text = "MaxMin (α)";
-            this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMaxMin
-            // 
-            this.tBMaxMin.Location = new System.Drawing.Point(107, 3);
-            this.tBMaxMin.Name = "tBMaxMin";
-            this.tBMaxMin.ReadOnly = true;
-            this.tBMaxMin.Size = new System.Drawing.Size(151, 27);
-            this.tBMaxMin.TabIndex = 1;
-            this.tBMaxMin.TabStop = false;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.AutoSize = true;
-            this.flowLayoutPanel4.Controls.Add(this.label3);
-            this.flowLayoutPanel4.Controls.Add(this.tBMinMax);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(8, 62);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(259, 33);
-            this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "MinMax (β)";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBMinMax
-            // 
-            this.tBMinMax.Location = new System.Drawing.Point(107, 3);
-            this.tBMinMax.Name = "tBMinMax";
-            this.tBMinMax.ReadOnly = true;
-            this.tBMinMax.Size = new System.Drawing.Size(149, 27);
-            this.tBMinMax.TabIndex = 1;
-            this.tBMinMax.TabStop = false;
             // 
             // groupBox1
             // 
@@ -217,7 +238,7 @@
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 117);
+            this.groupBox1.Size = new System.Drawing.Size(300, 117);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Количество решений";
@@ -288,90 +309,200 @@
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // tabPage2
+            // GraphicsTabPage
             // 
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(704, 557);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Графики";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.GraphicsTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GraphicsTabPage.Controls.Add(this.pictureBox1);
+            this.GraphicsTabPage.Location = new System.Drawing.Point(4, 30);
+            this.GraphicsTabPage.Name = "GraphicsTabPage";
+            this.GraphicsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.GraphicsTabPage.Size = new System.Drawing.Size(689, 531);
+            this.GraphicsTabPage.TabIndex = 1;
+            this.GraphicsTabPage.Text = "Графики";
+            this.GraphicsTabPage.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(698, 551);
+            this.pictureBox1.Size = new System.Drawing.Size(681, 523);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tabPage3
+            // InfoTabPage
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(704, 557);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Справка";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.InfoTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.InfoTabPage.Controls.Add(this.richTextBox1);
+            this.InfoTabPage.Location = new System.Drawing.Point(4, 30);
+            this.InfoTabPage.Name = "InfoTabPage";
+            this.InfoTabPage.Size = new System.Drawing.Size(689, 531);
+            this.InfoTabPage.TabIndex = 2;
+            this.InfoTabPage.Text = "Справка";
+            this.InfoTabPage.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip,
+            this.графикиToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(697, 23);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "Панель меню";
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.Menu;
+            this.menuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillRandomMenuButton,
+            this.solveRandomMenuButton,
+            this.clearTableMenuButton,
+            this.executeMenuButton});
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(65, 19);
+            this.menuStrip.Text = "Таблица";
+            // 
+            // solveRandomMenuButton
+            // 
+            this.solveRandomMenuButton.Name = "solveRandomMenuButton";
+            this.solveRandomMenuButton.Size = new System.Drawing.Size(325, 22);
+            this.solveRandomMenuButton.Text = "Решить со случайными значениями";
+            this.solveRandomMenuButton.Click += new System.EventHandler(this.fillTableRandomMenuButton_Click);
+            // 
+            // clearTableMenuButton
+            // 
+            this.clearTableMenuButton.Name = "clearTableMenuButton";
+            this.clearTableMenuButton.Size = new System.Drawing.Size(325, 22);
+            this.clearTableMenuButton.Text = "Очистить таблицу";
+            this.clearTableMenuButton.Click += new System.EventHandler(this.clearTableMenuButton_Click);
+            // 
+            // executeMenuButton
+            // 
+            this.executeMenuButton.Name = "executeMenuButton";
+            this.executeMenuButton.Size = new System.Drawing.Size(325, 22);
+            this.executeMenuButton.Text = "Решить таблицу";
+            this.executeMenuButton.Click += new System.EventHandler(this.bExecute_Click);
+            // 
+            // графикиToolStripMenuItem
+            // 
+            this.графикиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveGraphicMenuButton});
+            this.графикиToolStripMenuItem.Name = "графикиToolStripMenuItem";
+            this.графикиToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
+            this.графикиToolStripMenuItem.Text = "График";
+            // 
+            // SaveGraphicMenuButton
+            // 
+            this.SaveGraphicMenuButton.Name = "SaveGraphicMenuButton";
+            this.SaveGraphicMenuButton.Size = new System.Drawing.Size(180, 22);
+            this.SaveGraphicMenuButton.Text = "Сохранить";
+            this.SaveGraphicMenuButton.Click += new System.EventHandler(this.SaveGraphicMenuButton_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(687, 529);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "Диаграмма";
+            this.saveFileDialog1.Filter = "Изображение (JPEG)|*.jpeg| Все файлы|*.*";
+            this.saveFileDialog1.Title = "Сохранение изображения диаграммы";
+            this.saveFileDialog1.ValidateNames = false;
+            // 
+            // fillRandomMenuButton
+            // 
+            this.fillRandomMenuButton.Name = "fillRandomMenuButton";
+            this.fillRandomMenuButton.Size = new System.Drawing.Size(325, 22);
+            this.fillRandomMenuButton.Text = "Заполнить таблицу случайными значениями";
+            this.fillRandomMenuButton.Click += new System.EventHandler(this.fillRandomMenuButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 588);
+            this.ClientSize = new System.Drawing.Size(697, 588);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MinimumSize = new System.Drawing.Size(299, 200);
             this.Name = "Form1";
             this.Text = "gChart";
+            this.TopMost = true;
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.MainTabPage.ResumeLayout(false);
+            this.MainTabPage.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.GraphicsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.InfoTabPage.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage MainTabPage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.TabPage GraphicsTabPage;
         private System.Windows.Forms.Label Label4;
-        private System.Windows.Forms.TextBox tBMaxMin;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tBMinMax;
-        private System.Windows.Forms.Button bRandom;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tBMaxMin;
         private System.Windows.Forms.Button bExecute;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage InfoTabPage;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem solveRandomMenuButton;
+        private System.Windows.Forms.ToolStripMenuItem clearTableMenuButton;
+        private System.Windows.Forms.ToolStripMenuItem executeMenuButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.ToolStripMenuItem графикиToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem SaveGraphicMenuButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem fillRandomMenuButton;
     }
 }
 
