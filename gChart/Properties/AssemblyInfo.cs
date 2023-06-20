@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("gChart")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Калькулятор матричных игр")]
+[assembly: AssemblyDescription("Приложение для решения матричных игр 2х2 в смешанных стратегиях")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("gChart")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCopyright("Тишков Константин")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

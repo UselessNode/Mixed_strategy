@@ -7,7 +7,7 @@
     <ProjectGuid>{91685228-C098-4E19-A373-B78E52705976}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>gChart</RootNamespace>
-    <AssemblyName>gChart</AssemblyName>
+    <AssemblyName>Matrix2x2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>gChart.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

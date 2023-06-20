@@ -25,6 +25,8 @@ namespace gChart
         private double q1;
         private double q2;
         private double y;
+        Double maxmin;
+        Double minmax;
         public Form1()
         {
             InitializeComponent();
@@ -58,9 +60,7 @@ namespace gChart
             {
                 List<Double> temp = new List<Double>(rowSize);
                 for (int col = 0; col < colSize + 1; col++)
-                {
                     temp.Add(data[row, col]);
-                }
                 listRows.Add(temp);
             }
 
@@ -69,44 +69,52 @@ namespace gChart
             {
                 List<Double> temp = new List<Double>();
                 for (int row = 0; row < rowSize + 1; row++)
-                {
                     temp.Add(data[row, col]);
-                }
                 listCols.Add(temp);
             }
 
+            // Запись минимальных значений в список
             foreach (List<Double> list in listRows)
                 minList.Add(list.Min());
-            
 
+            // Запись максимальных значений в список
             foreach (List<Double> list in listCols)
                 maxList.Add(list.Max());
 
-            Double maxmin = minList.Max();
-            Double minmax = maxList.Min();
+            // Инициализация maxmin и minmax
+            maxmin = minList.Max();
+            minmax = maxList.Min();
 
             tBMinMax.Text = (minmax).ToString();
             tBMaxMin.Text = (maxmin).ToString();
-            if (minmax == maxmin)
+            if (minmax == maxmin) // Проверка на наличие седловой точки
             {
                 rtbOutput.Text += $"Цена игры (V): {minmax} \n";
                 return;
             }
-            rtbOutput.Text += $"Задача является смешанной \n";
 
+
+            // Вычисление значений тратегий и цены игры в смешанных стратегиях
             p1 = (data[1, 1] - data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
             p2 = (data[0, 0] - data[0, 1]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
             q1 = (data[1, 1] - data[0, 1]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
             q2 = (data[0, 0] - data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
-            y = (data[0,0] * data[1,1] - data[0, 1] * data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
+            y = (data[0, 0] * data[1, 1] - data[0, 1] * data[1, 0]) / (data[0, 0] + data[1, 1] - data[1, 0] - data[0, 1]);
 
+
+            if(y > minmax || y < maxmin)
+                rtbOutput.Text += $"Задача в чистых стратегиях\n";
+            else
+                rtbOutput.Text += $"Задача в смешанных стратегиях\n";
+
+            // Вывод значений
             rtbOutput.Text += $"\nЦена игры (V) = {y.ToString("0.00")}";
             rtbOutput.Text += $"\nq1 = {q1.ToString("0.00")}";
             rtbOutput.Text += $"\nq2 = {q2.ToString("0.00")}";
             rtbOutput.Text += $"\np1 = {p1.ToString("0.00")}";
             rtbOutput.Text += $"\np2 = {p2.ToString("0.00")}";
         }
-        
+
         private Double[,] GetArrayFromDataGridView(Boolean isDouble)
         {
             int rCount = dataGridView1.RowCount;
@@ -168,10 +176,11 @@ namespace gChart
             Pen lightPen = new Pen(new SolidBrush(Color.Crimson), 2);
             lightPen.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
+            // Отрисовка границ графика
             g.DrawLine(boldPen, 0, 0, 0, 300);
-            g.DrawLine(boldPen, 300, 300, 300,0);
-
-            for (int i = 0; i <= 300; i+=30)
+            g.DrawLine(boldPen, 300, 300, 300, 0);
+            // Отрисовка делений на оси Y от 0 до 10
+            for (int i = 0; i <= 300; i += 30)
             {
                 g.DrawLine(boldPen,
                     0, i,
@@ -180,43 +189,46 @@ namespace gChart
                     300, i,
                     285, i);
             }
+            // Отрисовка линий стратегий игроков
 
             foreach (var list in listCols)
-                g.DrawLine(lightPen, 
-                    0, 300 - (float)list[0] * 30, 
-                    300, 300 - (float)list[1]* 30);
-            if(p2 != 0)
+                g.DrawLine(lightPen,
+                    0, 300 - (float)list[0] * 30,
+                    300, 300 - (float)list[1] * 30);
+            if (minmax != maxmin)
             {
-                g.DrawString($"V = {y.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
-                    ((float)p2 * 300) + 30,
-                    300 - ((float)y * 30f));
-                g.DrawLine(new Pen(Color.Blue), 
-                    (float)p2 * 300, 300, 
+
+                g.DrawString($"V = {y.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black),
+                        ((float)p2 * 300),
+                        300 - ((float)y * 30f));
+                g.DrawLine(new Pen(Color.Blue),
+                    (float)p2 * 300, 300,
                     (float)p2 * 300, 300 - (float)y * 30f);
-                g.DrawString($"p2 = {p2.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
+                g.DrawString($"p2 = {p2.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black),
                     40,
                     285);
-                g.DrawLine(new Pen(Color.CadetBlue), 
-                    0, 285, 
+                g.DrawLine(new Pen(Color.CadetBlue),
+                    0, 285,
                     (float)p2 * 300, 285);
-                g.DrawString($"p1 = {p1.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black), 
+                g.DrawString($"p1 = {p1.ToString("0.00")}", new Font("Times New Roman", 8), new SolidBrush(Color.Black),
                     240,
                     285);
-                g.DrawLine(new Pen(Color.CadetBlue), 
-                    300, 285, 
+                g.DrawLine(new Pen(Color.CadetBlue),
+                    300, 285,
                     (float)p2 * 300, 285);
             }
-                
             pictureBox1.Image = bitmap;
         }
 
         private void SaveGraphicMenuButton_Click(object sender, EventArgs e)
         {
+            // Выхов диалогового окна сохранения изображения
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            string filename = saveFileDialog1.FileName;
-            bitmap.Save(filename,ImageFormat.Jpeg);
-            MessageBox.Show("Диаграмма сохранена!","Сохранение",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            // Сохранение изображения в формате jpeg по выбранному в диалоговом окне пути и имени
+            bitmap.Save(saveFileDialog1.FileName, ImageFormat.Jpeg);
+            // Оповещение об успешном сохранении
+            MessageBox.Show("Диаграмма сохранена!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void fillRandomMenuButton_Click(object sender, EventArgs e) => FillRandom();
